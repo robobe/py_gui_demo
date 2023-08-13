@@ -1,0 +1,52 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build deb",
+            "type": "shell",
+            "command": "python3 setup.py --command-packages=stdeb.command bdist_deb",
+            "problemMatcher": []
+        },
+        {
+            "label": "build wheel",
+            "type": "shell",
+            "command": "python3 setup.py bdist_wheel",
+            "problemMatcher": []
+        },
+        {
+            "label": "clean",
+            "type": "shell",
+            "command": "/usr/bin/bash -x scripts/clean.sh",
+            "problemMatcher": []
+        },
+        {
+            "label": "build deploy container",
+            "type": "shell",
+            "command": "docker build --target deploy -t ${workspaceFolderBasename}:deploy -f .devcontainer/Dockerfile .",
+            "problemMatcher": []
+        },
+        {
+            "label": "build base container",
+            "type": "shell",
+            "command": "docker build --target python_base -t ${workspaceFolderBasename}:base -f .devcontainer/Dockerfile .",
+            "problemMatcher": []
+        },
+        {
+            "label": "build prod container",
+            "type": "shell",
+            "command": "docker build --target prod -t ${workspaceFolderBasename}:prod -f .devcontainer/Dockerfile --build-arg APP_VER=${input:app_version} .",
+            "problemMatcher": []
+        }
+
+    ],
+    "inputs": [
+        {
+            "id": "app_version",
+            "description": "app_version",
+            "options": ["0.0.1", "0.0.2"],
+            "type": "pickString"
+        },
+    ]
+}

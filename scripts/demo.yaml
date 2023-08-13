@@ -1,0 +1,4 @@
+trustedRegistries:
+  - dd
+ignored:
+  - DL
