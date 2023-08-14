@@ -39,8 +39,7 @@
             "command": "scripts/gen_deb.sh",
             "args": [
                 "${workspaceFolder}",
-                "${workspaceFolderBasename}",
-                "0.0.1"
+                "${workspaceFolderBasename}"
             ],
             "dependsOn": [
                 "build wheel"

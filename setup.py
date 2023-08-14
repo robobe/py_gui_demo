@@ -1,10 +1,10 @@
 from setuptools import find_packages, setup
-from py_gui_demo import __version__
+from py_gui_demo import __version__, __description__
 
 setup(
     name="py_gui_demo",
     version=__version__,
-    description="description",
+    description=__description__,
     author="",
     author_email="",
     platforms=["any"],
