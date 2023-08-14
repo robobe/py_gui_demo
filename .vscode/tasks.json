@@ -38,6 +38,17 @@
             "type": "shell",
             "command": "docker build --target prod -t ${workspaceFolderBasename}:prod -f .devcontainer/Dockerfile --build-arg APP_VER=${input:app_version} .",
             "problemMatcher": []
+        },
+        {
+            "label": "build deb",
+            "type": "shell",
+            "command": "scripts/gen_deb.sh",
+            "args": [
+                "${workspaceFolder}",
+                "${workspaceFolderBasename}",
+                "0.0.1"
+            ],
+            "problemMatcher": []
         }
 
     ],
