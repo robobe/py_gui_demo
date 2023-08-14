@@ -59,7 +59,6 @@ RUN apt-get update && apt-get install -y \
     python3-all \
     debhelper \
     dh-python \
-    python3-stdeb \
     locales \
     locales-all \
     && apt-get -y clean && rm -rf /var/lib/apt/lists/*

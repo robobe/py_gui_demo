@@ -4,12 +4,6 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build deb",
-            "type": "shell",
-            "command": "python3 setup.py --command-packages=stdeb.command bdist_deb",
-            "problemMatcher": []
-        },
-        {
             "label": "build wheel",
             "type": "shell",
             "command": "python3 setup.py bdist_wheel",
@@ -47,6 +41,9 @@
                 "${workspaceFolder}",
                 "${workspaceFolderBasename}",
                 "0.0.1"
+            ],
+            "dependsOn": [
+                "build wheel"
             ],
             "problemMatcher": []
         }

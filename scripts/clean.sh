@@ -7,3 +7,4 @@ rm -rf *.egg-info
 rm *.tar.gz
 rm -rf build
 rm -rf deb_dist
+rm -rf deb/build/
