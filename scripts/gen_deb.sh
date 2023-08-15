@@ -4,6 +4,7 @@ WORKDIR=$1
 PROJECT_NAME=$2
 VERSION=`python -c "from py_gui_demo import __version__;print(__version__)"`
 DESCRIPTION=`python -c "from py_gui_demo import __description__;print(__description__)"`
+LONG_DESCRIPTION=`python -c "from py_gui_demo import __long_description__;print(__long_description__)"`
 ARCH="amd64"
 
 rm -rf $WORKDIR/deb/build/$PROJECT_NAME*
@@ -38,6 +39,7 @@ Priority: optional
 Architecture: all
 Maintainer: robobe <test@test.com>
 Description: $DESCRIPTION
+ $LONG_DESCRIPTION
 Depends: python3, python3-pip, python3-tk
 EOF
 

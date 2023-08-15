@@ -57,6 +57,7 @@ FROM deploy as development
 RUN apt-get update && apt-get install -y \
     git \
     python3-all \
+    lintian \
     debhelper \
     dh-python \
     locales \
